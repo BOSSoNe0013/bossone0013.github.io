@@ -63,5 +63,50 @@
           document.documentElement.scrollTo({ top: 0, behavior: 'smooth' });
         });
     </script>
+    <script type="module">
+			import { w2toolbar, w2utils, query } from 'https://rawgit.com/vitmalina/w2ui/master/dist/w2ui.es6.min.js';
+
+			window.notify = function(message) {
+				let where = query('body');
+				w2utils.notify(`<span>${message}</span>`, { timeout: 12000, class:"slidein-notification", where: where });
+			};
+
+			window.error = function(message) {
+				let where = query('body');
+				w2utils.notify(`<span>${message}</span>`, { timeout: 12000, class:"slidein-notification error", where: where });
+			};
+			let mainToolbar = new w2toolbar({
+				box: '#mainToolbar',
+				name: 'mainToolbar',
+				items: [
+					{ type: 'spacer' },
+					{ 
+						type: 'menu-radio', 
+						id: 'langSelector' ,
+						arrow: false,
+						text(item) {
+							let el = item.get(item.selected);
+							return el.text;
+						},
+						icon(item) {
+							let el = item.get(item.selected);
+							return el.icon;
+						},
+						selected: language,
+						items: [
+							{ id: 'en', text: 'En', icon: 'flag flag-en' },
+							{ id: 'fr', text: 'Fr', icon: 'flag flag-fr' },
+						],
+					}
+				],
+			});
+			mainToolbar.on('click', event => {
+				if (event.target.startsWith('langSelector:')) {
+					language = event.detail.subItem.id;
+					document.documentElement.setAttribute("lang", language);
+					setCookie('lang', language, 90);
+				}
+			});
+    </script>
   </body>
 </html>
