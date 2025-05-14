@@ -1,9 +1,67 @@
     <hr />
     <section>
-            <p>You can always find me on <a class="lsf-big-icon" title="twitter" href="https://twitter.com/BOSSoNe0013"><span>Twitter</span></a> and <a class="lsf-big-icon" title="facebook" href="https://www.facebook.com/bossone"><span>Facebook</span></a>.
-            You can also browse my photographies on <a href="http://500px.com/BOSSoNe/store"><span>500px</span></a> and <a class="lsf-big-icon" title="flickr" href="https://www.flickr.com/photos/bossone/"><span>Flickr</span></a>.</p>
-            <a href="https://www.malt.fr/profile/cyrilbosselut" data-id="55128827e4b098ed2b6b1362" class="hopwork_button" data-width="small" data-colorscheme="blue" data-recos="true" data-bgrecos="dark">Hire me !</a>
+			<div class="lang_en">
+				<p>You can always find me on <a class="lsf-big-icon" title="twitter" href="https://x.com/BOSSoNe0013"><span>X</span></a> and <a class="lsf-big-icon" title="facebook" href="https://www.facebook.com/TheB1Project"><span>Facebook</span></a>.
+				You can also browse my photos on <a class="lsf-big-icon" title="facebook" href="https://www.facebook.com/b1.photos"><span>Facebook</span></a>, <a class="lsf-big-icon" title="flickr" href="https://www.flickr.com/photos/bossone/"><span>Flickr</span></a>, <a class="lsf-big-icon" title="instagram" href="https://www.instagram.com/bossone_0013/"><span>Instagram</span></a> and <a class="lsf-big-icon" href="https://500px.com/BOSSoNe/store"><span>500px</span></a>.</p>
+			</div>
+ 			<div class="lang_fr">
+				<p>Vous pouvez me retrouver sur <a class="lsf-big-icon" title="twitter" href="https://x.com/BOSSoNe0013"><span>X</span></a> et <a class="lsf-big-icon" title="facebook" href="https://www.facebook.com/TheB1Project"><span>Facebook</span></a>.
+				Vous pouvez également parcourir mes photos sur <a class="lsf-big-icon" title="facebook" href="https://www.facebook.com/b1.photos"><span>Facebook</span></a>, <a class="lsf-big-icon" title="flickr" href="https://www.flickr.com/photos/bossone/"><span>Flickr</span></a>, <a class="lsf-big-icon" title="instagram" href="https://www.instagram.com/bossone_0013/"><span>Instagram</span></a> et <a class="lsf-big-icon" href="https://500px.com/BOSSoNe"><span>500px</span></a>.</p>
+			</div>
+      <a href="https://www.malt.fr/profile/cyrilbosselut"  class="hire_me_button lang_en" rel="external">Hire me !</a>
+			<a href="https://www.malt.fr/profile/cyrilbosselut" class="hire_me_button lang_fr" rel="external">Besoin de mes services !</a>
     </section>
-    <footer>&copy;The B1 Project 2019 <a id="backtotop">#</a></footer>
+		<footer><span translate="no">&copy;The B1 Project 2000-2025</span> <span>|</span> <a href="#" onclick="window.displayPreferenceModal();return false;" id="termly-consent-preferences">Consent Preferences</a> <a id="backtotop">▲</a></footer>
+      <script>
+        function setCookie(cname, cvalue, exdays) {
+            var d = new Date();
+            d.setTime(d.getTime() + (exdays*24*60*60*1000));
+            var expires = "expires="+d.toUTCString();
+            document.cookie = cname + "=" + cvalue + "; " + expires;
+        };
+
+        function getCookie(cname) {
+            var name = cname + "=";
+            var ca = document.cookie.split(';');
+            for(var i=0; i<ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0)==' ') c = c.substring(1);
+                if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+            }
+            return "";
+        };
+
+        function deleteCookie(cname){
+          document.cookie = cname + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC";
+        };
+
+        function externalLinks() {
+          if (!document.getElementsByTagName) return;
+          var anchors = document.getElementsByTagName("a");
+          for (var i=0; i<anchors.length; i++) {
+            var anchor = anchors[i];
+            if (anchor.getAttribute("href") && anchor.getAttribute("rel") == "external")
+              anchor.target = "_blank";
+            if (anchor.getAttribute("form") && anchor.getAttribute("id") == "external")
+              anchor.target = "_blank";
+          }
+        };
+        var language = getCookie('lang') || (window.navigator.userLanguage || window.navigator.language).split("-")[0];
+        document.documentElement.setAttribute("lang", language);
+        document.addEventListener('DOMContentLoaded', function() {
+          externalLinks();
+          window.addEventListener('scroll', function(){
+            if(document.documentElement.scrollTop >= 128){
+              document.getElementById('backtotop').className = 'visible';
+            }
+            else{
+              document.getElementById('backtotop').className = '';
+            }
+          }, false);
+        });
+        document.getElementById('backtotop').addEventListener('click', event => {
+          document.documentElement.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
   </body>
 </html>
