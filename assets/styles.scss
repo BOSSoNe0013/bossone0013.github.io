@@ -41,3 +41,14 @@
 .min-height-full {
   min-height: 100vh;
 }
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.hire_me_button:hover, #backtotop:hover {
+  text-decoration: none;
+}
